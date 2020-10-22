@@ -2,13 +2,7 @@
 
 ## 项目结构介绍
 
-├─assets 图片
-├─static 
-│  └─js jquery库
-├─templates
-│  └─inject.html 包含攻击代码的html文件
-├─index.html 用户正常访问的页面
-├─app.py Flask框架应用
+<img src="./assets/stru.jpg" width = 300px>
 
 **注意：**
 
